@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-md-6-offset-3">
+        <h2 class="text-primary">Login Here</h2><br>
+        <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" formControlName="Username" class="form-control"
+                [(ngModel)]="userlogin.Username"
+                [ngClass]="{'is-invalid':submitted && form['Username'].errors}">
+                <div *ngIf="submitted && form['Username'].errors" class="invalid-feedback">
+                    UserName Cannot be empty
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" formControlName="Password" class="form-control"
+                [(ngModel)]="userlogin.Password"
+                [ngClass]="{'is-invalid':submitted && form['Password'].errors}">
+                <div *ngIf="submitted && form['Password'].errors" class="invalid-feedback">
+                    <div *ngIf="form['Password'].errors ['required']">
+                        Password cannot be empty
+                    </div>
+                </div>
+            </div><br>
+            <button class="btn btn-primary">Login</button>
+        </form>
+    </div>
+
+</div>
+

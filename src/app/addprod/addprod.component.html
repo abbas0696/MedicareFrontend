@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-6-offset-3">
+        <h2 class="text-primary">Add Product</h2><br>
+        <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label>Product Name</label>
+                <input type="text" formControlName="productname" class="form-control"
+                [(ngModel)]="prod.productname"
+                [ngClass]="{'is-invalid':submitted && form['productname'].errors}">
+                <div *ngIf="submitted && form['productname'].errors" class="invalid-feedback">
+                    Name Cannot be empty
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="text" formControlName="quantity" class="form-control"
+                [(ngModel)]="prod.quantity"
+                [ngClass]="{'is-invalid':submitted && form['quantity'].errors}">
+                <div *ngIf="submitted && form['quantity'].errors" class="invalid-feedback">
+                    <div *ngIf="form['quantity'].errors ['required']">
+                        Quantity cannot be empty
+                    </div>
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label>Price</label>
+                <input type="text" formControlName="price"  class="form-control"
+                [(ngModel)]="prod.price"
+                [ngClass]="{'is-invalid':submitted && form['price'].errors}">
+                <div *ngIf="submitted && form['price'].errors" class="invalid-feedback">
+                    Price Cannot be empty
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label>Description</label>
+                <input type="text" formControlName="description"  class="form-control"
+                [(ngModel)]="prod.description"
+                [ngClass]="{'is-invalid':submitted && form['description'].errors}">
+                <div *ngIf="submitted && form['description'].errors" class="invalid-feedback">
+                    Description Cannot be empty
+                </div>
+            </div><br>
+            <button class="btn btn-primary">Register</button>
+        </form>
+    </div>
+
+</div>
+
